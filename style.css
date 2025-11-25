@@ -1,0 +1,135 @@
+
+.error {
+    color: red;
+    font-weight: bold;
+}
+.maiuscula {
+    text-transform: uppercase;
+}
+
+.arquivo {
+    color: #f00;
+}
+
+.pasta {
+    font-size: calc(min(.7vw, 16px) + 0.5em); ;
+    line-height: 1.1;
+    text-decoration: none;
+    color: #000;
+}
+
+.subpasta {
+    font-size: calc(min(.9vw, 16px) + 0.5em); ;
+    line-height: 1.1;
+    text-decoration: none;
+    color: #000;
+}
+
+.pasta_linha {
+    font-size: calc(min(1.2vw, 16px) + 0.5em); ;
+    line-height: 1.1;
+    color: #000;
+}
+a.link {
+    font-size: calc(min(0.9vw, 16px) + 0.5em); ;
+    line-height: 1.1;
+    line-height: normal;
+    display: inline-block;
+    text-decoration: none;
+    color: blue;
+}
+
+a.link:hover {
+    text-decoration: underline;
+}
+
+h1.titulo  {
+    display: table;
+    font-size: calc(max(0.5vw, 30px) + 0.5em); ;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 100px;
+    text-align: center;
+}
+
+img.logo {
+    min-width: calc(min(30%, 317px));
+    min-height: calc(min(30%, 108px));
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 0.25em;
+    margin: auto;
+}
+
+
+
+.tree, .tree ul {
+
+    list-style: none;
+    padding-left: 20px;
+}
+
+.tree li {
+    font-size: calc(min(0.8vw, 12px) + 0.5em);
+    position: relative;
+    text-transform: uppercase;
+    padding: 10px;
+
+}
+
+.tree li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    border-left: 1px solid black;
+}
+
+.tree li:last-child::before {
+    border-left: none;
+}
+
+.tree li::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    border-top: 1px solid black;
+    width: 10px;
+}
+
+.tree li a {
+    text-decoration: none;
+    color: blue;
+    text-transform: uppercase;
+}
+
+.folder {
+    font-size: calc(min(0.8vw, 12px) + 0.5em);
+    font-weight: bold;
+}
+
+
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: #FFF;
+}
