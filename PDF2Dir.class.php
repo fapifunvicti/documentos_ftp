@@ -2,6 +2,18 @@
 class PDF2Dir {
 
         private string $folder;
+        private IntlDateFormatter $formatter;
+        public function __construct()
+        {
+            $this->formatter = new IntlDateFormatter(
+                'pt_BR',
+                IntlDateFormatter::NONE,
+                IntlDateFormatter::NONE,
+                new DateTimeZone("America/Sao_Paulo"),
+                 IntlDateFormatter::GREGORIAN,
+                 "dd/MM/yyyy HH:mm:ss"
+            );
+        }
 
         public static function limparPasta(string $folder, string $url): string {
 
@@ -138,10 +150,23 @@ class PDF2Dir {
                             break;
                     }
 
+                    $data_criacao_fmt = "Não Informado";
+                    $data_modificacao_fmt = "Não informado";
+
+                    if(is_file($dir_completo)){
+                        $stat = stat( $dir_completo);
+                        $ctime = $stat['ctime'];
+                        $mtime = $stat['mtime'];
+                        $data_criacao_fmt = $this->formatter->format(new DateTime("@$ctime"));
+                        $data_modificacao_fmt = $this->formatter->format(new DateTime("@$mtime"));
+                    }
+
+
+
                     $html .= '<p>'.pathinfo($this->folder . $dir . '/' . $item, PATHINFO_EXTENSION).'</p>';
                     $link = "download.php?" . $query;
                     $html .= "<li  data-jstree='{\"icon\":\"{$icone}\"}'>";
-                    $html .= "<a class=\"jstree-clicked\" href=\"{$link}\">{$nome}</a>";
+                    $html .= "<a class=\"jstree-clicked\" href=\"{$link}\"><strong>{$nome}</strong>  <small class=\"text-body-secondary\">Data de Upload: {$data_criacao_fmt} -- Ultima Modificação: {$data_modificacao_fmt}  </small></a>";
                     $html .= "</li>";
                 }
 

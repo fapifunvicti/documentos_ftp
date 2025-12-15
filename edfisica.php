@@ -1,4 +1,5 @@
 <?php
+
 include_once "PDF2Dir.class.php";
 //echo __DIR__ . DIRECTORY_SEPARATOR . 'pdf_engenharias';
 //exit;
@@ -6,7 +7,7 @@ include_once "PDF2Dir.class.php";
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
